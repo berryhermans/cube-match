@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 278520435102750404}
   - component: {fileID: 1737557356493104501}
   - component: {fileID: 6744079546147225437}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.11, y: 1.11, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2194344123667493892
 GameObject:
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5414244295228671348}
   - component: {fileID: 5669231486872173935}
   - component: {fileID: 5593412612185675264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.11, z: 1.11}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2753280403815646814
 GameObject:
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1549025887015289105}
   - component: {fileID: 5861983393910102969}
   - component: {fileID: 6711782679689211573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.11, y: 1, z: 1.11}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3545183073799998695
 GameObject:
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 3875990065923694215}
   - component: {fileID: 6398814952584644262}
   - component: {fileID: 8010407180162118311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.11, z: 1.11}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4334730724171515736
 GameObject:
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 8681434520255793650}
   - component: {fileID: 2089490485230238041}
   - component: {fileID: 4059601860905460227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.11, y: 1.11, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9128566847799783057
 GameObject:
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 2939391075194356981}
   - component: {fileID: 7839499852580232464}
   - component: {fileID: 7491114262120199900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,5 +669,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.11, y: 1, z: 1.11}
   m_Center: {x: 0, y: 0, z: 0}
