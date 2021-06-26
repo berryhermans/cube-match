@@ -2454,6 +2454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeState: {fileID: 641497344}
+  cubeMap: {fileID: 1407670718}
+  rayPrefab: {fileID: 3109026737908069977, guid: d0f9b3afbafaa6b4c8571aa8bed41982,
+    type: 3}
   Up: {fileID: 1539594817}
   Down: {fileID: 1873920824}
   Front: {fileID: 1482903810}
@@ -4453,6 +4456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1407670717}
+  - component: {fileID: 1407670718}
   m_Layer: 0
   m_Name: CubeMap
   m_TagString: Untagged
@@ -4485,6 +4489,25 @@ RectTransform:
   m_AnchoredPosition: {x: 500, y: -500}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1407670718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407670716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c5ded9faca7df4f964357b54ba12a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeState: {fileID: 641497344}
+  up: {fileID: 650154905}
+  down: {fileID: 1753753672}
+  left: {fileID: 80316140}
+  right: {fileID: 260161038}
+  front: {fileID: 79576312}
+  back: {fileID: 1691756250}
 --- !u!1 &1430502881
 GameObject:
   m_ObjectHideFlags: 0
