@@ -34,7 +34,6 @@ public class CubeReader : MonoBehaviour
 
     void Update()
     {
-        ReadState();
     }
 
     public void ReadState()
@@ -105,7 +104,7 @@ public class CubeReader : MonoBehaviour
             {
                 Debug.DrawRay(ray, rayTransform.forward * hit.distance, Color.yellow);
                 facesHit.Add(hit.collider.gameObject);
-                print(hit.collider.gameObject.name);
+                //print(hit.collider.gameObject.name);
             }
             else
             {

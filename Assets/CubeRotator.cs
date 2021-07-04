@@ -11,6 +11,9 @@ public class CubeRotator : MonoBehaviour
     private Vector2 upPressPos;
     private Vector2 currentSwipe;
 
+    private int layerMask = 1 << 6;
+    private bool isDragging = false;
+
     private void Update()
     {
         Swipe();
@@ -26,11 +29,25 @@ public class CubeRotator : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // get the 2d screen position where the mouse/finger is pressed
-            downPressPos = Input.mousePosition;
+            // raycast from the mouse towards the cube to see if a face is hit
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100.0f, layerMask))
+            {
+                // we hit a face, a side has to be rotated instead of the cube, which is done elsewhere
+                Debug.Log("FACE");
+                return;
+            }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            // get the 2d screen position where the mouse/finger is pressed
+            downPressPos = Input.mousePosition;
+            isDragging = true;
+        }
+
+        if (Input.GetMouseButtonUp(0) && isDragging)
         {
             // get the 2d screen position where the mouse/finger is released
             upPressPos = Input.mousePosition;
@@ -68,6 +85,8 @@ public class CubeRotator : MonoBehaviour
                 Debug.Log("Swipe Down Right");
                 target.transform.Rotate(-90, 0, 0, Space.World);
             }
+
+            isDragging = false;
         }
     }
 
