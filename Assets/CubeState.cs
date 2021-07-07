@@ -27,4 +27,15 @@ public class CubeState : MonoBehaviour
         cubeSide[4].transform.parent.GetComponent<PivotRotation>().Rotate(cubeSide);
     }
 
+    public void PutDown(List<GameObject> littleCubes, Transform pivot)
+    {
+        foreach (GameObject littleCube in littleCubes)
+        {
+            if (littleCube != littleCubes[4])
+            {
+                littleCube.transform.parent.transform.parent = pivot;
+            }
+        }
+    }
+
 }
