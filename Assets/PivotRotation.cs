@@ -12,7 +12,7 @@ public class PivotRotation : MonoBehaviour
     private Vector3 mouseRef;
     private bool isDragging = false;
     private bool isAutoRotating = false;
-    private float sensitivity = 0.1f;
+    private float sensitivity = 0.2f;
     private float speed = 300f;
     private Vector3 rotation;
 
