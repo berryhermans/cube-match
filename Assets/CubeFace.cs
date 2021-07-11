@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PieceFace : MonoBehaviour
+public class CubeFace : MonoBehaviour
 {
     [SerializeField] private MeshRenderer mesh;
 

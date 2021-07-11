@@ -25,15 +25,9 @@ public class CubeReader : MonoBehaviour
     private List<GameObject> leftRays = new List<GameObject>();
     private List<GameObject> rightRays = new List<GameObject>();
 
-    void Start()
+    void Awake()
     {
         SetRayTransforms();
-
-        
-    }
-
-    void Update()
-    {
     }
 
     public void ReadState()
