@@ -3408,7 +3408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f5a528bcbff1f46a3fe1a33e84e6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovesBeforeAddingColour: 10
   cubePainter: {fileID: 641497346}
+  cubeReader: {fileID: 641497343}
 --- !u!4 &956005444
 Transform:
   m_ObjectHideFlags: 0
