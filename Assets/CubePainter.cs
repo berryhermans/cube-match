@@ -34,7 +34,7 @@ public class CubePainter : MonoBehaviour
 
     public void PaintRandomFace()
     {
-        CubeFace[] eligableFaces = faces.Where(x => x.MeshMaterial != neutralMaterial).ToArray();
+        CubeFace[] eligableFaces = faces.Where(x => x.MeshMaterial.color == neutralMaterial.color).ToArray();
 
         if (eligableFaces.Length > 0)
         {

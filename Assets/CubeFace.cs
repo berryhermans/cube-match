@@ -11,4 +11,6 @@ public class CubeFace : MonoBehaviour
         get => mesh.material;
         set => mesh.material = value;
     }
+
+
 }
