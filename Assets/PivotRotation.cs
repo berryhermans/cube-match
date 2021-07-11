@@ -6,15 +6,19 @@ public class PivotRotation : MonoBehaviour
 {
     [SerializeField] private CubeReader cubeReader;
     [SerializeField] private CubeState cubeState;
-    
+
     private List<GameObject> activeSide;
     private Vector3 localForward;
     private Vector3 mouseRef;
+    private Vector3 rotateRef;
     private bool isDragging = false;
     private bool isAutoRotating = false;
     private float sensitivity = 0.2f;
     private float speed = 300f;
     private Vector3 rotation;
+
+    public static event UserAction OnUserRotation;
+    public delegate void UserAction();
 
     private Quaternion targetQuaternion;
 
@@ -39,6 +43,7 @@ public class PivotRotation : MonoBehaviour
     {
         activeSide = side;
         mouseRef = Input.mousePosition;
+        rotateRef = transform.rotation.eulerAngles;
         isDragging = true;
 
         // create a vector to rotate around
@@ -52,6 +57,12 @@ public class PivotRotation : MonoBehaviour
         vec.x = Mathf.Round(vec.x / 90) * 90;
         vec.y = Mathf.Round(vec.y / 90) * 90;
         vec.z = Mathf.Round(vec.z / 90) * 90;
+
+        // is the target angle a different angle than at the start of the drag?
+        if (rotateRef.normalized != vec.normalized)
+        {
+            OnUserRotation?.Invoke();
+        }
 
         targetQuaternion.eulerAngles = vec;
         isAutoRotating = true;

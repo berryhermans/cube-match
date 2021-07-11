@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int MovesBeforeAddingColour;
+
     [SerializeField] private CubePainter cubePainter;
     [SerializeField] private CubeReader cubeReader;
+
+    private int moveCount;
+
+    private void OnEnable()
+    {
+        PivotRotation.OnUserRotation += IncreaseMoveCount;
+    }
+
+    private void OnDisable()
+    {
+        PivotRotation.OnUserRotation -= IncreaseMoveCount;
+    }
 
     private void Start()
     {
@@ -15,4 +29,17 @@ public class GameManager : MonoBehaviour
 
         cubeReader.ReadState();
     }
+
+    private void IncreaseMoveCount()
+    {
+        moveCount++;
+
+        if (moveCount % MovesBeforeAddingColour == 0)
+        {
+            cubePainter.AddNextMaterial();
+        }
+
+        cubePainter.PaintRandomFace();
+    }
+
 }
