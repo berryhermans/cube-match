@@ -25,7 +25,12 @@ public class GameManager : MonoBehaviour
     {
         cubePainter.Init();
         cubePainter.AddNextMaterial();
-        cubePainter.PaintRandomFace();
+
+
+        for (int i = 0; i < 53; i++)
+        {
+            cubePainter.PaintRandomFace();
+        }
 
         cubeReader.ReadState();
     }

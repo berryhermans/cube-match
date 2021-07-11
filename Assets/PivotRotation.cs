@@ -54,12 +54,12 @@ public class PivotRotation : MonoBehaviour
     {
         Vector3 vec = transform.localEulerAngles;
         // round vec to nearest 90 degress
-        vec.x = Mathf.Round(vec.x / 90) * 90;
-        vec.y = Mathf.Round(vec.y / 90) * 90;
-        vec.z = Mathf.Round(vec.z / 90) * 90;
+        vec.x = Mathf.Round(vec.x / 90) * 90 % 360;
+        vec.y = Mathf.Round(vec.y / 90) * 90 % 360;
+        vec.z = Mathf.Round(vec.z / 90) * 90 % 360;
 
         // is the target angle a different angle than at the start of the drag?
-        if (rotateRef.normalized != vec.normalized)
+        if (rotateRef != vec)
         {
             OnUserRotation?.Invoke();
         }

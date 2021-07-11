@@ -35,7 +35,6 @@ public class CubeRotator : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100.0f, layerMask))
             {
                 // we hit a face, a side has to be rotated instead of the cube, which is done elsewhere
-                Debug.Log("FACE");
                 return;
             }
         }
