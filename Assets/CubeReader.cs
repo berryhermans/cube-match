@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CubeReader : MonoBehaviour
@@ -33,12 +34,12 @@ public class CubeReader : MonoBehaviour
     public void ReadState()
     {
         // set the state of each position in the list of sides so we know what color is in what position
-        cubeState.Up = ReadFace(upRays, Up);
-        cubeState.Down = ReadFace(downRays, Down);
-        cubeState.Left = ReadFace(leftRays, Left);
-        cubeState.Right = ReadFace(rightRays, Right);
-        cubeState.Front = ReadFace(frontRays, Front);
-        cubeState.Back = ReadFace(backRays, Back);
+        cubeState.Up = ReadSide(upRays, Up);
+        cubeState.Down = ReadSide(downRays, Down);
+        cubeState.Left = ReadSide(leftRays, Left);
+        cubeState.Right = ReadSide(rightRays, Right);
+        cubeState.Front = ReadSide(frontRays, Front);
+        cubeState.Back = ReadSide(backRays, Back);
 
         // update the map with the found positions
         cubeMap.Set();
@@ -85,7 +86,7 @@ public class CubeReader : MonoBehaviour
         return rays;
     }
 
-    public List<GameObject> ReadFace(List<GameObject> rayStarts, Transform rayTransform)
+    public List<GameObject> ReadSide(List<GameObject> rayStarts, Transform rayTransform)
     {
         List<GameObject> facesHit = new List<GameObject>();
 
@@ -96,17 +97,23 @@ public class CubeReader : MonoBehaviour
 
             if (Physics.Raycast(ray, rayTransform.forward, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.DrawRay(ray, rayTransform.forward * hit.distance, Color.yellow);
+                Debug.DrawRay(ray, rayTransform.forward * hit.distance, Color.yellow, 1f);
                 facesHit.Add(hit.collider.gameObject);
                 //print(hit.collider.gameObject.name);
             }
             else
             {
-                Debug.DrawLine(ray, rayTransform.forward * 1000, Color.green);
+                Debug.DrawLine(ray, rayTransform.forward * 1000, Color.green, 1f);
             }
         }
 
-
         return facesHit;
+    }
+
+    private void DetectMatches(List<GameObject> rayStarts, Transform rayTransform)
+    {
+        List<CubeFace> faces = ReadSide(rayStarts, rayTransform).Select(x => x.GetComponent<CubeFace>()).ToList();
+
+        // check if [0,1,2] [3,4,5] [6,7,8] [0,3,6] ... are the same
     }
 }

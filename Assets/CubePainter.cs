@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CubePainter : MonoBehaviour
 {
-    [SerializeField] private Material neutralMaterial;
-    [SerializeField] private List<Material> allFaceMaterials;
+    [SerializeField] private CubeFaceType neutralCubeFaceType;
+    [SerializeField] private List<CubeFaceType> allCubeFaceTypes;
 
-    private List<Material> materialsInPlay = new List<Material>();
+    private List<CubeFaceType> cubeFaceTypesInPlay = new List<CubeFaceType>();
     private CubeFace[] faces;
 
     public void Init()
@@ -18,29 +18,29 @@ public class CubePainter : MonoBehaviour
         // start out the entire cube as netural
         foreach (CubeFace pieceFace in faces)
         {
-            pieceFace.MeshMaterial = neutralMaterial;
+            pieceFace.Type = neutralCubeFaceType;
         }
     }
 
     public void AddNextMaterial()
     {
-        if (allFaceMaterials.Count > 0)
+        if (allCubeFaceTypes.Count > 0)
         {
-            Material newMaterial = allFaceMaterials[0];
-            materialsInPlay.Add(newMaterial);
-            allFaceMaterials.Remove(newMaterial);
+            CubeFaceType newType = allCubeFaceTypes[0];
+            cubeFaceTypesInPlay.Add(newType);
+            allCubeFaceTypes.Remove(newType);
         }
     }
 
     public void PaintRandomFace()
     {
-        CubeFace[] eligableFaces = faces.Where(x => x.MeshMaterial.color == neutralMaterial.color).ToArray();
+        CubeFace[] eligableFaces = faces.Where(x => x.MeshMaterial.color == neutralCubeFaceType.Material.color).ToArray();
 
         if (eligableFaces.Length > 0)
         {
             CubeFace randomFace = eligableFaces[Random.Range(0, eligableFaces.Length)];
-            Material randomMaterial = materialsInPlay[Random.Range(0, materialsInPlay.Count)];
-            randomFace.MeshMaterial = randomMaterial;
+            CubeFaceType randomType = cubeFaceTypesInPlay[Random.Range(0, cubeFaceTypesInPlay.Count)];
+            randomFace.Type = randomType;
         }
         else
         {

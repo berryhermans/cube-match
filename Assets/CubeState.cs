@@ -11,6 +11,7 @@ public class CubeState : MonoBehaviour
     public List<GameObject> Left = new List<GameObject>();
     public List<GameObject> Right = new List<GameObject>();
 
+
     public void PickUp(List<GameObject> cubeSide)
     {
         foreach (GameObject face in cubeSide)
@@ -37,5 +38,4 @@ public class CubeState : MonoBehaviour
             }
         }
     }
-
 }
