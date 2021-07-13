@@ -43,7 +43,7 @@ public class PivotRotation : MonoBehaviour
     {
         activeSide = side;
         mouseRef = Input.mousePosition;
-        rotateRef = transform.rotation.eulerAngles;
+        rotateRef = transform.localEulerAngles;
         isDragging = true;
 
         // create a vector to rotate around
@@ -61,6 +61,7 @@ public class PivotRotation : MonoBehaviour
         // is the target angle a different angle than at the start of the drag?
         if (rotateRef != vec)
         {
+            print($"{rotateRef} - {vec}");
             OnUserRotation?.Invoke();
         }
 
