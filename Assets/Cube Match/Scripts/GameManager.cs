@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PivotRotation.OnUserRotation += IncreaseMoveCount;
+        PivotRotation.OnUserRotation += cubeReader.DetectMatches;
     }
 
     private void OnDisable()
     {
         PivotRotation.OnUserRotation -= IncreaseMoveCount;
+        PivotRotation.OnUserRotation -= cubeReader.DetectMatches;
     }
 
     private void Start()

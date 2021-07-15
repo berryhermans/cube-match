@@ -121,7 +121,6 @@ public class PivotRotation : MonoBehaviour
             transform.localRotation = targetQuaternion;
             cubeState.PutDown(activeSide, transform.parent);
             cubeReader.ReadState();
-            cubeReader.DetectMatches();
 
             isAutoRotating = false;
             isDragging = false;
