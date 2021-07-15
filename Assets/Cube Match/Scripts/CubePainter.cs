@@ -16,6 +16,16 @@ public class CubePainter : MonoBehaviour
     private List<Material> materialsInPlay = new List<Material>();
     private CubeFace[] faces;
 
+    private void OnEnable()
+    {
+        CubeReader.OnMatch += PaintFacesNeutral;
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     public void Init()
     {
         faces = FindObjectsOfType<CubeFace>();
@@ -26,6 +36,7 @@ public class CubePainter : MonoBehaviour
             pieceFace.MeshMaterial = neutralMaterial;
         }
     }
+
 
     public void AddNextMaterial()
     {
@@ -50,6 +61,14 @@ public class CubePainter : MonoBehaviour
         else
         {
             // TODO: lose the game because the cube is full
+        }
+    }
+
+    private void PaintFacesNeutral(CubeFace[] faces)
+    {
+        foreach (CubeFace face in faces)
+        {
+            face.MeshMaterial = neutralMaterial;
         }
     }
 }
