@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PivotRotation.OnUserRotation += IncreaseMoveCount;
+        cubeReader.OnMatch += MatchFaces;
     }
 
     private void OnDisable()
     {
         PivotRotation.OnUserRotation -= IncreaseMoveCount;
+        cubeReader.OnMatch -= MatchFaces;
     }
 
     private void Start()
@@ -42,4 +44,8 @@ public class GameManager : MonoBehaviour
         cubePainter.PaintRandomFace();
     }
 
+    private void MatchFaces(CubeFace[] faces)
+    {
+
+    }
 }
