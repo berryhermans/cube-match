@@ -28,7 +28,7 @@ public class CubeReader : MonoBehaviour
     private List<GameObject> rightRays = new List<GameObject>();
 
     public delegate void MatchAction(CubeFace[] matchingFaces);
-    public event MatchAction OnMatch;
+    public static event MatchAction OnMatch;
 
     void Awake()
     {

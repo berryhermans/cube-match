@@ -2481,6 +2481,7 @@ GameObject:
   - component: {fileID: 641497344}
   - component: {fileID: 641497345}
   - component: {fileID: 641497346}
+  - component: {fileID: 641497347}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2617,6 +2618,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c697d81c8f84f604080021f71e8067cc, type: 2}
   - {fileID: 2100000, guid: 14b3c4cd2b0e62d4c97ffa982a1994e4, type: 2}
   - {fileID: 2100000, guid: 5613c1e6e6acec14a948e573c7e3a52c, type: 2}
+--- !u!114 &641497347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641497340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81479ad63b50f3a4e82accf066026dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cube: {fileID: 641497340}
+  CubePunchScale: {x: 1.15, y: 1.15, z: 1.15}
+  CubePunchUpDuration: 0.075
+  CubePunchDownDuration: 0.225
 --- !u!1001 &647480702
 PrefabInstance:
   m_ObjectHideFlags: 0
