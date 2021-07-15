@@ -2557,6 +2557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeState: {fileID: 641497344}
   cubeMap: {fileID: 1407670718}
+  cubePainter: {fileID: 641497346}
   rayPrefab: {fileID: 3109026737908069977, guid: d0f9b3afbafaa6b4c8571aa8bed41982,
     type: 3}
   Up: {fileID: 1539594817}
@@ -2610,7 +2611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neutralMaterial: {fileID: 2100000, guid: 928e870520da1ec4a9d2928c7aeb3192, type: 2}
-  allFaceMaterials:
+  allMaterials:
   - {fileID: 2100000, guid: 2f51cd95a5cf82843a5ffb02b4944925, type: 2}
   - {fileID: 2100000, guid: 43d7178b49e0146439e40194649aee79, type: 2}
   - {fileID: 2100000, guid: c697d81c8f84f604080021f71e8067cc, type: 2}

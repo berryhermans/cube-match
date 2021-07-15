@@ -7,6 +7,7 @@ public class CubeReader : MonoBehaviour
 {
     [SerializeField] private CubeState cubeState;
     [SerializeField] private CubeMap cubeMap;
+    [SerializeField] private CubePainter cubePainter;
     [SerializeField] private GameObject rayPrefab;
 
     [Header("Rays")]
@@ -26,6 +27,9 @@ public class CubeReader : MonoBehaviour
     private List<GameObject> leftRays = new List<GameObject>();
     private List<GameObject> rightRays = new List<GameObject>();
 
+    public delegate void MatchAction(CubeFace[] matchingFaces);
+    public event MatchAction OnMatch;
+
     void Awake()
     {
         SetRayTransforms();
@@ -43,6 +47,16 @@ public class CubeReader : MonoBehaviour
 
         // update the map with the found positions
         cubeMap.Set();
+    }
+
+    public void DetectMatches()
+    {
+        DetectMatches(upRays, Up);
+        DetectMatches(downRays, Down);
+        DetectMatches(leftRays, Left);
+        DetectMatches(rightRays, Right);
+        DetectMatches(frontRays, Front);
+        DetectMatches(downRays, Down);
     }
 
     private void SetRayTransforms()
@@ -99,7 +113,6 @@ public class CubeReader : MonoBehaviour
             {
                 Debug.DrawRay(ray, rayTransform.forward * hit.distance, Color.yellow, 1f);
                 facesHit.Add(hit.collider.gameObject);
-                //print(hit.collider.gameObject.name);
             }
             else
             {
@@ -114,6 +127,24 @@ public class CubeReader : MonoBehaviour
     {
         List<CubeFace> faces = ReadSide(rayStarts, rayTransform).Select(x => x.GetComponent<CubeFace>()).ToList();
 
-        // check if [0,1,2] [3,4,5] [6,7,8] [0,3,6] ... are the same
+        CubeFace[] row1 = new CubeFace[] { faces[0], faces[1], faces[2] };
+        CubeFace[] row2 = new CubeFace[] { faces[3], faces[4], faces[5] };
+        CubeFace[] row3 = new CubeFace[] { faces[6], faces[7], faces[8] };
+        CubeFace[] col1 = new CubeFace[] { faces[0], faces[3], faces[6] };
+        CubeFace[] col2 = new CubeFace[] { faces[1], faces[4], faces[7] };
+        CubeFace[] col3 = new CubeFace[] { faces[2], faces[5], faces[8] };
+
+        if (row1.All(x => x.MeshMaterial.color == row1[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(row1);
+        if (row2.All(x => x.MeshMaterial.color == row2[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(row2);
+        if (row3.All(x => x.MeshMaterial.color == row3[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(row3);
+        if (col1.All(x => x.MeshMaterial.color == col1[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(col1);
+        if (col2.All(x => x.MeshMaterial.color == col2[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(col2);
+        if (col3.All(x => x.MeshMaterial.color == col3[0].MeshMaterial.color && x.MeshMaterial.color != cubePainter.NeutralMaterial.color))
+            OnMatch(col3);
     }
 }
